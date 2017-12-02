@@ -1,0 +1,13 @@
+* text=auto
+
+*.js text
+*.sh  text
+*.txt text
+*.xml text
+*.xsd text
+*.yml text
+*.css text
+*.json text
+*.html text
+*.java text
+*.properties text

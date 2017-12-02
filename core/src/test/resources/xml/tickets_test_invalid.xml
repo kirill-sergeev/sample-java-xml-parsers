@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ticket:ticketArray xmlns:ticket="http://itroi.sergeev.com/entity/ticket" xmlns:aircraft="http://itroi.sergeev.com/entity/aircraft" xmlns:airport="http://itroi.sergeev.com/entity/airport" xmlns:flight="http://itroi.sergeev.com/entity/flight" xmlns:passenger="http://itroi.sergeev.com/entity/passenger" xmlns:payment="http://itroi.sergeev.com/entity/payment">
+    <ticket:ticket id="A">
+        <ticket:airline code="1">Lufthansa</ticket:airline>
+        <ticket:seat>1</ticket:seat>
+        <ticket:serviceType>BUSINESS</ticket:serviceType>
+        <ticket:flight id="A">
+            <flight:departure>2010-01-01</flight:departure>
+            <flight:flightStatus>COMPLETED</flight:flightStatus>
+            <flight:departureAirport code="1">
+                <airport:airportName>John F. Kennedy International Airport</airport:airportName>
+                <airport:timezone>-5</airport:timezone>
+                <airport:location>
+                    <airport:country code="US">United States of America</airport:country>
+                    <airport:city>New York</airport:city>
+                    <airport:coordinates>
+                        <airport:latitude>40.64416</airport:latitude>
+                        <airport:longitude>-73.782</airport:longitude>
+                    </airport:coordinates>
+                </airport:location>
+            </flight:departureAirport>
+            <flight:arrivalAirport code="FR">
+                <airport:airportName>Frankfurt Airport</airport:airportName>
+                <airport:timezone>1</airport:timezone>
+                <airport:location>
+                    <airport:country code="GE">Germany</airport:country>
+                    <airport:city>Frankfurt</airport:city>
+                    <airport:coordinates>
+                        <airport:latitude>500124</airport:latitude>
+                        <airport:longitude>83203</airport:longitude>
+                    </airport:coordinates>
+                </airport:location>
+            </flight:arrivalAirport>
+            <flight:aircraft code="1">
+                <aircraft:model>Airbus A-380</aircraft:model>
+                <aircraft:seats>1280</aircraft:seats>
+            </flight:aircraft>
+        </ticket:flight>
+        <ticket:passenger id="A">
+            <passenger:name>John Doe</passenger:name>
+            <passenger:gender>MALE</passenger:gender>
+            <passenger:birthdate>1990-01-01</passenger:birthdate>
+            <passenger:email>john@gmail.com</passenger:email>
+        </ticket:passenger>
+        <ticket:payment id="1">
+            <payment:price currency="EUR">220.0</payment:price>
+            <payment:paymentType>CREDIT_CARD</payment:paymentType>
+        </ticket:payment>
+        <ticket:bookDate>2010-01-01</ticket:bookDate>
+    </ticket:ticket>
+</ticket:ticketArray>

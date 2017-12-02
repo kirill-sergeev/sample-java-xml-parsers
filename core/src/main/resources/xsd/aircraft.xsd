@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://itroi.sergeev.com/entity/aircraft"
+            targetNamespace="http://itroi.sergeev.com/entity/aircraft"
+            elementFormDefault="qualified">
+
+    <xsd:complexType name="aircraft">
+        <xsd:all>
+            <xsd:element name="model" type="tns:aircraftModel"/>
+            <xsd:element name="seats" type="tns:seatsNumber"/>
+        </xsd:all>
+        <xsd:attribute name="code" type="tns:aircraftCode" use="required"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="aircraftModel">
+        <xsd:restriction base="xsd:token">
+            <xsd:minLength value="3"/>
+            <xsd:maxLength value="20"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="seatsNumber">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+            <xsd:maxInclusive value="500"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="aircraftCode">
+        <xsd:restriction base="xsd:token">
+            <xsd:pattern value="\p{Lu}[\p{Lu}\d\-]{1,10}\p{Lu}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

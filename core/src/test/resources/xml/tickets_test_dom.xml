@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ticket:ticketArray xmlns:ticket="http://itroi.sergeev.com/entity/ticket" xmlns:aircraft="http://itroi.sergeev.com/entity/aircraft" xmlns:airport="http://itroi.sergeev.com/entity/airport" xmlns:flight="http://itroi.sergeev.com/entity/flight" xmlns:passenger="http://itroi.sergeev.com/entity/passenger" xmlns:payment="http://itroi.sergeev.com/entity/payment">
+    <ticket:ticket id="1">
+        <ticket:airline code="LHA">Lufthansa</ticket:airline>
+        <ticket:seat>1</ticket:seat>
+        <ticket:serviceType>BUSINESS</ticket:serviceType>
+        <ticket:flight id="1">
+            <flight:departure>2010-01-01T01:01:01Z</flight:departure>
+            <flight:arrival>2010-01-01T06:01:01Z</flight:arrival>
+            <flight:flightStatus>COMPLETED</flight:flightStatus>
+            <flight:departureAirport code="JFK">
+                <airport:airportName>John F. Kennedy International Airport</airport:airportName>
+                <airport:timezone>-5</airport:timezone>
+                <airport:location>
+                    <airport:country code="USA">United States of America</airport:country>
+                    <airport:city>New York</airport:city>
+                    <airport:coordinates>
+                        <airport:latitude>40.64416</airport:latitude>
+                        <airport:longitude>-73.782</airport:longitude>
+                    </airport:coordinates>
+                </airport:location>
+            </flight:departureAirport>
+            <flight:arrivalAirport code="FRA">
+                <airport:airportName>Frankfurt Airport</airport:airportName>
+                <airport:timezone>1</airport:timezone>
+                <airport:location>
+                    <airport:country code="GER">Germany</airport:country>
+                    <airport:city>Frankfurt</airport:city>
+                    <airport:coordinates>
+                        <airport:latitude>50.0124</airport:latitude>
+                        <airport:longitude>8.3203</airport:longitude>
+                    </airport:coordinates>
+                </airport:location>
+            </flight:arrivalAirport>
+            <flight:aircraft code="MN-312XD">
+                <aircraft:model>Airbus A-380</aircraft:model>
+                <aircraft:seats>280</aircraft:seats>
+            </flight:aircraft>
+        </ticket:flight>
+        <ticket:passenger id="1">
+            <passenger:name>John Doe</passenger:name>
+            <passenger:gender>MALE</passenger:gender>
+            <passenger:birthdate>1990-01-01</passenger:birthdate>
+            <passenger:email>john@gmail.com</passenger:email>
+        </ticket:passenger>
+        <ticket:payment id="1">
+            <payment:price currency="EUR">220.0</payment:price>
+            <payment:paymentType>CREDIT_CARD</payment:paymentType>
+            <payment:paymentStatus>PAID</payment:paymentStatus>
+        </ticket:payment>
+        <ticket:bookDate>2010-01-01</ticket:bookDate>
+    </ticket:ticket>
+</ticket:ticketArray>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://itroi.sergeev.com/entity/ticket"
+            xmlns:flight="http://itroi.sergeev.com/entity/flight"
+            xmlns:passenger="http://itroi.sergeev.com/entity/passenger"
+            xmlns:payment="http://itroi.sergeev.com/entity/payment"
+            targetNamespace="http://itroi.sergeev.com/entity/ticket"
+            elementFormDefault="qualified">
+
+    <xsd:import namespace="http://itroi.sergeev.com/entity/flight" schemaLocation="flight.xsd"/>
+    <xsd:import namespace="http://itroi.sergeev.com/entity/passenger" schemaLocation="passenger.xsd"/>
+    <xsd:import namespace="http://itroi.sergeev.com/entity/payment" schemaLocation="payment.xsd"/>
+
+    <xsd:complexType name="ticket">
+        <xsd:sequence>
+            <xsd:element name="airline" type="tns:airline"/>
+            <xsd:element name="seat" type="tns:seatNumber"/>
+            <xsd:element name="serviceType" type="tns:serviceType"/>
+            <xsd:element name="flight" type="flight:flight"/>
+            <xsd:element name="passenger" type="passenger:passenger"/>
+            <xsd:element name="payment" type="payment:payment"/>
+            <xsd:element name="bookDate" type="tns:boundedDate"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="airline">
+        <xsd:simpleContent>
+            <xsd:extension base="tns:airlineName">
+                <xsd:attribute name="code" type="tns:airlineCode" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="seatNumber">
+        <xsd:restriction base="xsd:positiveInteger">
+            <xsd:minInclusive value="1"/>
+            <xsd:maxInclusive value="500"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="serviceType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BUSINESS"/>
+            <xsd:enumeration value="ECONOMY"/>
+            <xsd:enumeration value="FIRST"/>
+            <xsd:enumeration value="PREMIUM"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="airlineName">
+        <xsd:restriction base="xsd:token">
+            <xsd:minLength value="3"/>
+            <xsd:maxLength value="100"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="airlineCode">
+        <xsd:restriction base="xsd:token">
+            <xsd:pattern value="\p{Lu}{2,3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="boundedDate">
+        <xsd:restriction base="xsd:date">
+            <xsd:minInclusive value="1900-01-01"/>
+            <xsd:maxInclusive value="2050-01-01"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,108 @@
+<html xmlns:payment="http://itroi.sergeev.com/entity/payment" xmlns:flight="http://itroi.sergeev.com/entity/flight" xmlns:passenger="http://itroi.sergeev.com/entity/passenger" xmlns:ticket="http://itroi.sergeev.com/entity/ticket" xmlns:airport="http://itroi.sergeev.com/entity/airport">
+  <head>
+    <title>Ticket List</title>
+    <style>
+          body {
+          width: 800px;
+          margin: 50px auto;
+          padding: 20px;
+          font-family: Calibri, sans-serif;
+          font-size: 16px;
+          border: 3px dashed darkgreen;
+          text-align: center;
+          }
+
+          h1 {
+          font-size: 50px;
+          text-decoration-style: wavy;
+          text-decoration-color: darkgreen;
+          text-decoration-line: underline;
+          }
+
+          h2 {
+          font-size: 30px;
+          }
+
+          h2 {
+          font-size: 20px;
+          }
+
+          .title {
+          text-align: center;
+          font-family: Verdana, monospace;
+          }
+
+          .status {
+          color: darkgreen;
+          }
+
+          .info {
+          color: cornflowerblue;
+          }
+
+          .ticket {
+          border: 2px double black;
+          margin: 2px;
+          padding: 2px;
+          }
+
+          .departure {
+          border: 4px double black;
+          margin: 6px;
+          padding: 2px 6px;
+          background: #fc3;
+          float: left;
+          width: 360px;
+          }
+
+          .arrival {
+          border: 4px double black;
+          margin: 6px;
+          padding: 2px 6px;
+          background: #fc3;
+          float: right;
+          width: 360px;
+          }
+        </style>
+  </head>
+  <body>
+    <div class="ticketArray">
+      <h1 class="title">Ticket List</h1>
+      <div class="ticket">
+        <div class="info">
+          <h2 class="title">Ticket # 1</h2>
+          <div class="flight">
+            <div class="departure">
+              <h2 class="title">Departure</h2>
+              <p>Time: 2010-01-01T01:01:01Z</p>
+              <div class="airport">
+                <p>John F. Kennedy International Airport</p>
+                <p>New York,United States of America</p>
+              </div>
+            </div>
+            <div class="arrival">
+              <h2 class="title">Arrival</h2>
+              <p>Time: 2010-01-01T06:01:01Z</p>
+              <div class="airport">
+                <p>Frankfurt Airport</p>
+                <p>Frankfurt,Germany</p>
+              </div>
+            </div>
+            <h3 class="status">Flight Status: COMPLETED</h3>
+          </div>
+          <p>Service Type: BUSINESS</p>
+          <p>Seat Number: 1</p>
+          <p>Airline: Lufthansa</p>
+          <p>Book Date: 2010-01-01</p>
+          <div class="passenger">
+            <p>Passenger:John Doe</p>
+          </div>
+          <div class="payment">
+            <p>220.0EUR</p>
+            <h3 class="status">Payment Status: PAID</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

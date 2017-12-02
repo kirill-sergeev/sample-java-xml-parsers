@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://itroi.sergeev.com/entity/passenger"
+            targetNamespace="http://itroi.sergeev.com/entity/passenger"
+            elementFormDefault="qualified">
+
+    <xsd:complexType name="passenger">
+        <xsd:sequence>
+            <xsd:element name="name" type="tns:name"/>
+            <xsd:element name="gender" type="tns:gender"/>
+            <xsd:element name="birthdate" type="tns:boundedDate"/>
+            <xsd:element name="email" type="tns:email"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="name">
+        <xsd:restriction base="xsd:token">
+            <xsd:minLength value="3"/>
+            <xsd:maxLength value="255"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="gender">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="MALE"/>
+            <xsd:enumeration value="FEMALE"/>
+            <xsd:enumeration value="OTHER"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="boundedDate">
+        <xsd:restriction base="xsd:date">
+            <xsd:minInclusive value="1900-01-01"/>
+            <xsd:maxInclusive value="2050-01-01"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="email">
+        <xsd:restriction base="xsd:token">
+            <xsd:minLength value="3"/>
+            <xsd:maxLength value="254"/>
+            <xsd:pattern value="\S+@\S+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

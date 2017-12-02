@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://itroi.sergeev.com/entity/payment"
+            targetNamespace="http://itroi.sergeev.com/entity/payment"
+            elementFormDefault="qualified">
+
+    <xsd:complexType name="payment">
+        <xsd:sequence>
+            <xsd:element name="price" type="tns:price"/>
+            <xsd:element name="paymentType" type="tns:paymentType"/>
+            <xsd:element name="paymentStatus" type="tns:paymentStatus" default="UNPAID"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="price">
+        <xsd:simpleContent>
+            <xsd:extension base="tns:nonNegativeDouble">
+                <xsd:attribute name="currency" type="tns:currency" default="USD"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="currency">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AUD"/>
+            <xsd:enumeration value="BRL"/>
+            <xsd:enumeration value="CAD"/>
+            <xsd:enumeration value="CNY"/>
+            <xsd:enumeration value="EUR"/>
+            <xsd:enumeration value="GBP"/>
+            <xsd:enumeration value="INR"/>
+            <xsd:enumeration value="JPY"/>
+            <xsd:enumeration value="RUR"/>
+            <xsd:enumeration value="UAH"/>
+            <xsd:enumeration value="USD"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="paymentType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CASH"/>
+            <xsd:enumeration value="CREDIT_CARD"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="paymentStatus">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="PAID"/>
+            <xsd:enumeration value="UNPAID"/>
+            <xsd:enumeration value="RETURNED"/>
+            <xsd:enumeration value="CANCELED"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="nonNegativeDouble">
+        <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0"/>
+            <xsd:pattern value="\d+\.\d{1,2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

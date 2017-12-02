@@ -1,0 +1,25 @@
+language: java
+sudo: false
+install: true
+
+addons:
+  sonarcloud:
+    organization: "kirill-sergeev-github"
+    token:
+      secure: "e8crRiRNQaiOcE2YuG4Luqc+IyBbq5DJTvUhJ6AjbFCg9k9GxP03C4f5siJ8qzQcQkpLCkRS2kBq+A02rAOBl+iYi1DG2/Li6qTe/X30amkOy3TDyT49Rq93stvuSMGbaJi/C2V2RKHuiILpkJmqq59lRvOZbXfZCGhFX4pMZhK2AppLVxcRzsOaMVfrI2p/pXM1m8NmxveX2WlZjvoqpREnGIvBE+3Ln/IYNpcbBSWB1VPmA+yBfGOrJoqCx9UYvqT7b1KiHtousJ2rdDb+MiMJFjoQD7X5TIwAxaRsepQ9Ex5rKmr6czQ9IGh4clubeaqWP1ZvB/mAKJQmt901f9WFOwL+N033PEQRmhzulVyMk6geGtoS9sMhf6JYE+JkgalpRC6Q4KlRwC+LCMDcklGWpu+tj+lsuHsElyisK8M8Kn2KrUMxJH6ZWYwPesJSffhUU2ZuwYk/vkadu0td+PxdNGEz5s0tsurkLvKPuEZTVbr1y231XurjbslfJxVeZS+0Q+hmnrsUPFCqrO7j4VQ+1ppAwYBDa+5Sq0I3GZYuLvWzdG6BV0EUJks2mrzP9fnc4y9epi5kOHmKXUJuKewIfXBFVkDCVuBb9wSe4FkH/FEaDsdCLxbVl/dU2aQh6DqjtPmynCbddc0Edh36C4VrN4zdl8rEQwR2nmhEQss="
+    github_token:
+      secure: "RezrJSyIKEYL62jEq8eDUvVaA9B8fkOMGCXZ1BnvCaHS3DAN299csx8HBBLFn2HZ9pNbcQGcurcYP8C0vCGNAmicfMIg8fpfdZuzbVnspxBatuIbqbvZSHJIXu9wp0wbM/zn3yTjcoULZ6+GlNtqjwos6YPs//oaGTLePQen9SouWcV6mMMf7uXtcYrea23N9GGMCP0M+24MwbW3O6Np4TsSLT1NBJ4ujsQmzJ/awQ+TSgNsdrtLKUn1DjRp95FYuMLM1ypfztP9o3MwiA8UA9pVOtlAh9/N0QMUxvxzEbDsV2wT7ohCI9LUpY1EJ4P1T4WFteH6ORXRSpE3O9eb25zwMm9cW8+dJ89XvDIbc/Z5kVkI76l4OSXQKHqd+8xfinBifBVBnGRVZ19du67sKJLshG9ahHYkrnHbR/N9tjd7AvCEYMbucu66gQRtostQgzZbl7+c51srGDKPIdvng1/psgQmk+24/GceIUc7MIC43syMYBQTLDPvUkgbQo94yMMtG1HYpczW5WA8ooarcjt5VUGx3EtelGPAgdDeggYQLsy725y/oeEM18spIugzyBQhiDaY0elNQSCXl/XjF+DY/jehmrDqv24uCfqqaHArC9FdmLb/TiPYddVeTQAwQGKscd1FqofA1pLt+5ozgTwhRDyJYbAm9EzHzxFSX2s="
+
+jdk:
+  - oraclejdk8
+
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

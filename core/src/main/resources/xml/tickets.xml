@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="tickets.xsl"?>
+<ticket:ticketArray xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:ticket="http://itroi.sergeev.com/entity/ticket"
+                xmlns:flight="http://itroi.sergeev.com/entity/flight"
+                xmlns:passenger="http://itroi.sergeev.com/entity/passenger"
+                xmlns:payment="http://itroi.sergeev.com/entity/payment"
+                xmlns:airport="http://itroi.sergeev.com/entity/airport"
+                xmlns:aircraft="http://itroi.sergeev.com/entity/aircraft"
+                xsi:schemaLocation="http://itroi.sergeev.com/entity/ticket /xsd/tickets.xsd">
+    <ticket:ticket id="1">
+        <ticket:airline code="LHA">Lufthansa</ticket:airline>
+        <ticket:seat>1</ticket:seat>
+        <ticket:serviceType>BUSINESS</ticket:serviceType>
+        <ticket:flight id="1">
+            <flight:departure>2010-01-01T01:01:01Z</flight:departure>
+            <flight:arrival>2010-01-01T06:01:01Z</flight:arrival>
+            <flight:flightStatus>COMPLETED</flight:flightStatus>
+            <flight:departureAirport code="JFK">
+                <airport:airportName>John F. Kennedy International Airport</airport:airportName>
+                <airport:timezone>-5</airport:timezone>
+                <airport:location>
+                    <airport:country code="USA">United States of America</airport:country>
+                    <airport:city>New York</airport:city>
+                    <airport:coordinates>
+                        <airport:latitude>40.64416</airport:latitude>
+                        <airport:longitude>-73.782</airport:longitude>
+                    </airport:coordinates>
+                </airport:location>
+            </flight:departureAirport>
+            <flight:arrivalAirport code="FRA">
+                <airport:airportName>Frankfurt Airport</airport:airportName>
+                <airport:timezone>1</airport:timezone>
+                <airport:location>
+                    <airport:country code="GER">Germany</airport:country>
+                    <airport:city>Frankfurt</airport:city>
+                    <airport:coordinates>
+                        <airport:latitude>50.0124</airport:latitude>
+                        <airport:longitude>8.3203</airport:longitude>
+                    </airport:coordinates>
+                </airport:location>
+            </flight:arrivalAirport>
+            <flight:aircraft code="MN-312XD">
+                <aircraft:model>Airbus A-380</aircraft:model>
+                <aircraft:seats>280</aircraft:seats>
+            </flight:aircraft>
+        </ticket:flight>
+        <ticket:passenger id="1">
+            <passenger:name>John Doe</passenger:name>
+            <passenger:gender>MALE</passenger:gender>
+            <passenger:birthdate>1990-01-01</passenger:birthdate>
+            <passenger:email>john@gmail.com</passenger:email>
+        </ticket:passenger>
+        <ticket:payment id="1">
+            <payment:price currency="EUR">220.0</payment:price>
+            <payment:paymentType>CREDIT_CARD</payment:paymentType>
+            <payment:paymentStatus>PAID</payment:paymentStatus>
+        </ticket:payment>
+        <ticket:bookDate>2010-01-01</ticket:bookDate>
+    </ticket:ticket>
+
+    <ticket:ticket id="2">
+        <ticket:airline code="BA">British Airways</ticket:airline>
+        <ticket:seat>10</ticket:seat>
+        <ticket:serviceType>BUSINESS</ticket:serviceType>
+        <ticket:flight id="2">
+            <flight:departure>2017-10-15T09:30:10Z</flight:departure>
+            <flight:arrival>2017-10-15T11:15:30Z</flight:arrival>
+            <flight:flightStatus>COMPLETED</flight:flightStatus>
+            <flight:departureAirport code="LIN">
+                <airport:airportName>Milan Linate Airport</airport:airportName>
+                <airport:timezone>1</airport:timezone>
+                <airport:location>
+                    <airport:country code="ITA">Italy</airport:country>
+                    <airport:city>Milan</airport:city>
+                    <airport:coordinates>
+                        <airport:latitude>45.4521756</airport:latitude>
+                        <airport:longitude>9.2763079</airport:longitude>
+                    </airport:coordinates>
+                </airport:location>
+            </flight:departureAirport>
+            <flight:arrivalAirport code="LCY">
+                <airport:airportName>London City Airport</airport:airportName>
+                <airport:timezone>0</airport:timezone>
+                <airport:location>
+                    <airport:country code="GBR">United Kingdom</airport:country>
+                    <airport:city>London</airport:city>
+                    <airport:coordinates>
+                        <airport:latitude>51.3018</airport:latitude>
+                        <airport:longitude>0.0319</airport:longitude>
+                    </airport:coordinates>
+                </airport:location>
+            </flight:arrivalAirport>
+            <flight:aircraft code="EA-240AM">
+                <aircraft:model>Boeing 777</aircraft:model>
+                <aircraft:seats>185</aircraft:seats>
+            </flight:aircraft>
+        </ticket:flight>
+        <ticket:passenger id="2">
+            <passenger:name>Ivan Ivanov</passenger:name>
+            <passenger:gender>MALE</passenger:gender>
+            <passenger:birthdate>2000-01-01</passenger:birthdate>
+            <passenger:email>ivan@gmail.com</passenger:email>
+        </ticket:passenger>
+        <ticket:payment id="2">
+            <payment:price currency="EUR">125.00</payment:price>
+            <payment:paymentType>CASH</payment:paymentType>
+            <payment:paymentStatus>PAID</payment:paymentStatus>
+        </ticket:payment>
+        <ticket:bookDate>2017-10-05</ticket:bookDate>
+    </ticket:ticket>
+</ticket:ticketArray>

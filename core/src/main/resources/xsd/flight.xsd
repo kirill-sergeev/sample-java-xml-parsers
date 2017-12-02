@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://itroi.sergeev.com/entity/flight"
+            xmlns:airport="http://itroi.sergeev.com/entity/airport"
+            xmlns:aircraft="http://itroi.sergeev.com/entity/aircraft"
+            targetNamespace="http://itroi.sergeev.com/entity/flight"
+            elementFormDefault="qualified">
+
+    <xsd:import namespace="http://itroi.sergeev.com/entity/airport" schemaLocation="airport.xsd"/>
+    <xsd:import namespace="http://itroi.sergeev.com/entity/aircraft" schemaLocation="aircraft.xsd"/>
+
+    <xsd:complexType name="flight">
+        <xsd:sequence>
+            <xsd:element name="departure" type="xsd:dateTime"/>
+            <xsd:element name="arrival" type="xsd:dateTime"/>
+            <xsd:element name="flightStatus" type="tns:flightStatus"/>
+            <xsd:element name="departureAirport" type="airport:airport"/>
+            <xsd:element name="arrivalAirport" type="airport:airport"/>
+            <xsd:element name="aircraft" type="aircraft:aircraft"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="flightStatus">
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration value="EXPECTED"/>
+            <xsd:enumeration value="IN_THE_AIR"/>
+            <xsd:enumeration value="RESCHEDULED"/>
+            <xsd:enumeration value="COMPLETED"/>
+            <xsd:enumeration value="CANCELED"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

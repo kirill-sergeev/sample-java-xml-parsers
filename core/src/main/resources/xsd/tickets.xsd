@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://itroi.sergeev.com/entity/ticket"
+            targetNamespace="http://itroi.sergeev.com/entity/ticket"
+            elementFormDefault="qualified">
+
+    <xsd:include schemaLocation="ticket.xsd"/>
+
+    <xsd:element name="ticketArray">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ticket" type="tns:ticket" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

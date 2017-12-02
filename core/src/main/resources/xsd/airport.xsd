@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://itroi.sergeev.com/entity/airport"
+            targetNamespace="http://itroi.sergeev.com/entity/airport"
+            elementFormDefault="qualified">
+
+    <xsd:complexType name="airport">
+        <xsd:all>
+            <xsd:element name="airportName" type="tns:airportName"/>
+            <xsd:element name="timezone" type="tns:timezone"/>
+            <xsd:element name="location" type="tns:location"/>
+        </xsd:all>
+        <xsd:attribute name="code" type="tns:threeDigitCode" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="location">
+        <xsd:all>
+            <xsd:element name="country" type="tns:country"/>
+            <xsd:element name="city" type="tns:boundedString" minOccurs="0"/>
+            <xsd:element name="coordinates" type="tns:coordinates"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="country">
+        <xsd:simpleContent>
+            <xsd:extension base="tns:boundedString">
+                <xsd:attribute name="code" type="tns:threeDigitCode" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="coordinates">
+        <xsd:sequence>
+            <xsd:element name="latitude" type="tns:latitude"/>
+            <xsd:element name="longitude" type="tns:longitude"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="airportName">
+        <xsd:restriction base="xsd:token">
+            <xsd:minLength value="3"/>
+            <xsd:maxLength value="100"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="timezone">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-12"/>
+            <xsd:maxInclusive value="12"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="latitude">
+        <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-90"/>
+            <xsd:maxInclusive value="90"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="longitude">
+        <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-180"/>
+            <xsd:maxInclusive value="180"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="boundedString">
+        <xsd:restriction base="xsd:token">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="255"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="threeDigitCode">
+        <xsd:restriction base="xsd:token">
+            <xsd:pattern value="\p{Lu}{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

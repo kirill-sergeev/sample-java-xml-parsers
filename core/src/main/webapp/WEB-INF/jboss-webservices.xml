@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<webservices xmlns="http://www.jboss.com/xml/ns/javaee"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee
+             http://www.jboss.com/xml/ns/javaee/jbossws-web-services_1_0.xsd"
+             version="1.1">
+
+    <context-root>core/service</context-root>
+
+    <port-component>
+        <ejb-name>TicketServiceBean</ejb-name>
+        <port-component-name>TicketPort</port-component-name>
+        <port-component-uri>/tickets</port-component-uri>
+    </port-component>
+
+</webservices>
